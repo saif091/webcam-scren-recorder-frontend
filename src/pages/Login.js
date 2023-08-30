@@ -15,7 +15,7 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const result = await axios.post("http://localhost:4001/auth/login", {
+      const result = await axios.post("https://mern-rec-api.onrender.com/auth/login", {
         username,
         password,
       });
