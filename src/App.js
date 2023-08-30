@@ -19,7 +19,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/> }/>
       <Route path="/auth/login" element={<Login/>}/>
-      <Route path="/auth/register" element={<register/>}/>
+      <Route path="/auth/register" element={<Register/>}/>
 
       
         <Route path="/screenrecorder" element= {!cookies.access_token?(
