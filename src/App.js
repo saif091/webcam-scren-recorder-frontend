@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import { BrowserRouter,Route,Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import ScreenRecord from "./pages/ScreenRecord";
+import { Webcam } from "./pages/Webcam";
+import ProtectedRoutes from "./ProtectedRoutes";
+import { Cookies, useCookies } from 'react-cookie';
 
 function App() {
+  const [cookies, setCookies] = useCookies(["access_token"]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home/> }/>
+      <Route path="/auth/login" element={<Login/>}/>
+      
+        <Route path="/screenrecorder" element= {!cookies.access_token?(
+          <Login/>            
+          ):(
+            <ScreenRecord/>
+            )} />
+     <Route path="/webcam" element= {!cookies.access_token?(
+          <Login/>            
+          ):(
+            <Webcam/>
+            )} />
+    </Routes>
+    </BrowserRouter>
+      
+
+    </>
   );
 }
 
