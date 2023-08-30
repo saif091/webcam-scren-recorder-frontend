@@ -43,7 +43,7 @@ const Header = () => {
             <button className="btn btn-success" onClick={logout} >Logout</button>
             )}
                 {!cookies.access_token?(
-            <Link className="nav-link"to='/auth/login' ><button className="btn btn-success" >Register</button></Link>
+            <Link className="nav-link"to='/auth/register' ><button className="btn btn-success" >Register</button></Link>
             
           ):(null
             )}
