@@ -5,6 +5,7 @@ import {useCookies} from 'react-cookie'
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 const Register = () =>{
+    const navigate = useNavigate();
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
     const [cpassword,setcPassword] = useState("");
@@ -14,7 +15,8 @@ const Register = () =>{
         if (cpassword === password){
             try {
                 await axios.post("https://mern-rec-api.onrender.com/auth/register",{username,password})
-                alert("Registration Succesfuul")
+                alert("Registration Succesfull")
+                navigate('/auth/login")
             }catch (error){
                 console.log(error)
             }
