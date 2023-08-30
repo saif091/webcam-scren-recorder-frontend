@@ -13,7 +13,7 @@ const Register = () =>{
         e.preventDefault();
         if (cpassword === password){
             try {
-                await axios.post("http://localhost:4001/auth/register",{username,password})
+                await axios.post("https://mern-rec-api.onrender.com/auth/register",{username,password})
                 alert("Registration Succesfuul")
             }catch (error){
                 console.log(error)
